@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "smartbox",
+    "name": "SmartBox",
     "slug": "smartbox",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/Icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -19,12 +19,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/Icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.dappgeo.smartbox"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "6f0913fc-dabc-4a33-a2d3-699b2c2ddd79"
+      }
     }
   }
 }
