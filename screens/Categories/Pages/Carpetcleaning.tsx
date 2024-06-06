@@ -37,72 +37,8 @@ const CarpetCleaning: FunctionComponent<WelcomeProps> = ({ navigation }) => {
   };
   return (
     <View style={styles.container}>
-      <View style={styles.page}>
-        <View style={{}}>
-          <Text style={{ fontFamily: "Box" }}>
-            1 . Small size (1 upto 5 sq m).
-          </Text>
-          <View>
-            <Text>80 min</Text>
-          </View>
-        </View>
-        <View style={{}}>
-          <Text style={{ fontFamily: "Box" }}>
-            2. Meduim size (1 upto 10 sq m). .
-          </Text>
-          <View>
-            <Text>120 min</Text>
-          </View>
-        </View>
-
-        <View style={{}}>
-          <Text style={{ fontFamily: "Box", marginTop: 20 }}>
-            4. Large size ( 1 upto 15 sq m)?
-          </Text>
-          <View>
-            <Text>320 min</Text>
-          </View>
-        </View>
-        <View style={{}}>
-          <Text style={{ fontFamily: "Box", marginTop: 20 }}>
-            4. Extra Large size (1 upto 12 sq m)?
-          </Text>
-          <View
-            style={{
-              flexDirection: "row",
-              flexWrap: "wrap",
-            }}
-          ></View>
-        </View>
-        <View style={{}}>
-          <Text style={{ fontFamily: "Box", marginTop: 20 }}>
-            5 . Schedule ?
-          </Text>
-          <View>
-            <CalendarPicker
-              onDateChange={onDateChange}
-              textStyle={styles.calendarText}
-              customDatesStyles={[
-                {
-                  date: new Date(), // Customize styles for today
-                  style: styles.todayStyle,
-                  textStyle: styles.todayTextStyle,
-                },
-              ]}
-            />
-          </View>
-        </View>
-        <View>{/* <Text>Time ?</Text> */}</View>
-
-        <TouchableOpacity
-          style={styles.fixedBottom}
-          onPress={() => handleCategoryPress()}
-        >
-          <View>
-            <Text style={{ color: "white" }}>CHECK OUT</Text>
-          </View>
-          <Text style={{ color: "white" }}>500 AED</Text>
-        </TouchableOpacity>
+      <View style={styles.container}>
+        <Text>Check Link</Text>
       </View>
     </View>
   );

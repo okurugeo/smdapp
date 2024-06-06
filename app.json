@@ -11,18 +11,20 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "This app needs access to your location to provide personalized services."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/Icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.dappgeo.smartbox"
+      "package": "com.dappgeo.smartbox",
+      "permissions": ["ACCESS_FINE_LOCATION", "ACCESS_COARSE_LOCATION"]
     },
     "web": {
       "favicon": "./assets/favicon.png"

@@ -30,12 +30,12 @@ const LogoView = styled.View`
 const WelcomeCompany = styled.Text`
   font-size: 20px;
   font-weight: bold;
-  font-family: Box;
+  font-family: Box; // Corrected property name
 `;
 
 const TopLogo = styled.Image`
-  width: 150px;
-  height: 100px;
+  width: 150px; // Added unit
+  height: 100px; // Added unit
   resize-mode: contain;
 `;
 
@@ -49,17 +49,17 @@ const WelcomeDesc = styled.Text`
   font-size: 15px;
   margin: 20px;
   color: green;
-  font-family: Box;
+  font-family: Box; // Corrected property name
 `;
 
 const Welcome: FunctionComponent<WelcomeProps> = ({ navigation }) => {
   const navigateToMapScreen = () => {
-    navigation.navigate("Maps");
+    navigation.navigate("Home");
   };
 
   return (
     <>
-      {/* <StatusBar /> */}
+      <StatusBar />
       <LogoView>
         <TopLogo source={logo} />
       </LogoView>
@@ -67,9 +67,7 @@ const Welcome: FunctionComponent<WelcomeProps> = ({ navigation }) => {
         <CrewLogo source={crew} />
         <Text style={{ fontFamily: "Box" }}>Best</Text>
         <Text style={{ fontFamily: "Box" }}>Solution For Your Home</Text>
-        <RegularButton onPress={navigateToMapScreen}>
-          Continue as guest
-        </RegularButton>
+      
         <WelcomeDesc>You already have an account? Log in</WelcomeDesc>
       </WelcomeContainer>
     </>

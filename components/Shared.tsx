@@ -6,7 +6,7 @@ export const Container = styled.View`
   flex: 1;
   fontfamily: Box;
   padding: 20px;
-  backgroundColor:"red
+  backgroundcolor: red;
 `;
 export const Row = styled.View`
   display: flex;

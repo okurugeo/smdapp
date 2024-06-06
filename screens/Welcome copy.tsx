@@ -54,12 +54,12 @@ const WelcomeDesc = styled.Text`
 
 const Welcome: FunctionComponent<WelcomeProps> = ({ navigation }) => {
   const navigateToMapScreen = () => {
-    navigation.navigate("Maps");
+    navigation.navigate("Home");
   };
 
   return (
     <>
-      {/* <StatusBar /> */}
+      <StatusBar />
       <LogoView>
         <TopLogo source={logo} />
       </LogoView>
@@ -67,9 +67,7 @@ const Welcome: FunctionComponent<WelcomeProps> = ({ navigation }) => {
         <CrewLogo source={crew} />
         <Text style={{ fontFamily: "Box" }}>Best</Text>
         <Text style={{ fontFamily: "Box" }}>Solution For Your Home</Text>
-        <RegularButton onPress={navigateToMapScreen}>
-          Continue as guest
-        </RegularButton>
+
         <WelcomeDesc>You already have an account? Log in</WelcomeDesc>
       </WelcomeContainer>
     </>

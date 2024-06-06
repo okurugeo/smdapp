@@ -13,6 +13,19 @@ import ProfileScreen from "./screens/ProfileScreen";
 import logo from "./assets/logo.png";
 import { TextInput } from "react-native-gesture-handler";
 import HomeServicesPage from "./screens/Categories/Pages/Homeservices";
+import HomeTab from "./screens/Categories/Pages/Carwash";
+import Accleaning from "./screens/Categories/Pages/Accleaning";
+import SofaCleaning from "./screens/Categories/Pages/Sofacleaning";
+import DeepCleaning from "./screens/Categories/Pages/DeepCleaning";
+import VisaPaymentPage from "./screens/Categories/Pay/Payment";
+import Carwash from "./screens/Categories/Pages/Cars/Carwash";
+import Resturant from "./screens/Categories/Pages/Resturant/Resturant";
+import CarpetCleaning from "./screens/Categories/Pages/Carpetcleaning";
+import Electronics from "./screens/Categories/Pages/Electronines/Electronis";
+import Beauty from "./screens/Categories/Pages/Beauty/Baeuty";
+import CarsCards from "./screens/Categories/Pages/Car/Cars";
+import MapsScreen from "./screens/MapScreen";
+
 interface WelcomeScreenProps {
   navigation: any; // Update with the correct type for navigation
 }
@@ -119,7 +132,7 @@ const App: React.FC = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen name="Home Services" component={HomeServicesPage} />
-        {/* <Stack.Screen name="Home Side" component={HomeTab} />
+        <Stack.Screen name="Home Side" component={HomeTab} />
         <Stack.Screen name="Ac Cleaning" component={Accleaning} />
         <Stack.Screen name="Sofa Cleaning" component={SofaCleaning} />
         <Stack.Screen name="Deep Cleaning" component={DeepCleaning} />
@@ -129,9 +142,9 @@ const App: React.FC = () => {
         <Stack.Screen name="Electronics" component={Electronics} />
         <Stack.Screen name="Carpet Cleaning" component={CarpetCleaning} />
         <Stack.Screen name="Beauty" component={Beauty} />
-        <Stack.Screen name="CarsCards" component={CarsCards} /> */}
-        {/* <Stack.Screen name="M" component={Accleaning} /> */}
-        {/* <Stack.Screen name="Maps" component={Maps} /> */}
+        <Stack.Screen name="CarsCards" component={CarsCards} />
+        <Stack.Screen name="M" component={Accleaning} />
+        <Stack.Screen name="Maps" component={MapsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

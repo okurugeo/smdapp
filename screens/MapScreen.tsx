@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { StyleSheet, View, TouchableOpacity, Text, Button } from "react-native";
+import React, { useState, useEffect } from "react";
+import { StyleSheet, View, Text } from "react-native";
 import MapView, { Marker, Region } from "react-native-maps";
+import * as Location from "expo-location";
 import RegularButton from "../components/Button";
 
 interface MapsProps {
@@ -8,14 +9,38 @@ interface MapsProps {
 }
 
 const MapsScreen: React.FC<MapsProps> = ({ navigation }) => {
-  const initialRegion = {
+  const [initialRegion, setInitialRegion] = useState<Region>({
     latitude: -34.397,
     longitude: 150.644,
     latitudeDelta: 0.0922,
     longitudeDelta: 0.0421,
-  };
+  });
 
   const [selectedLocation, setSelectedLocation] = useState<Region | null>(null);
+
+  useEffect(() => {
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        console.log("Permission to access location was denied");
+        return;
+      }
+
+      let location = await Location.getCurrentPositionAsync({});
+      setInitialRegion({
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+      });
+      setSelectedLocation({
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+      });
+    })();
+  }, []);
 
   const handleMapPress = (event: any) => {
     const { latitude, longitude } = event.nativeEvent.coordinate;
@@ -34,22 +59,18 @@ const MapsScreen: React.FC<MapsProps> = ({ navigation }) => {
     }
   };
 
-  const navigateToMapScreen = () => {
-    navigation.navigate("Home");
-  };
-
   return (
     <View style={styles.container}>
       <MapView
         style={styles.map}
-        initialRegion={initialRegion}
+        region={initialRegion}
         onPress={handleMapPress}
       >
         {/* Display the selected location marker */}
         {selectedLocation && <Marker coordinate={selectedLocation} />}
       </MapView>
 
-      <RegularButton onPress={navigateToMapScreen}>
+      <RegularButton onPress={handleConfirmLocation}>
         Confirm Location
       </RegularButton>
     </View>
@@ -64,18 +85,6 @@ const styles = StyleSheet.create({
   },
   map: {
     ...StyleSheet.absoluteFillObject,
-  },
-  confirmButton: {
-    backgroundColor: "blue",
-    padding: 15,
-    borderRadius: 10,
-    position: "absolute",
-    bottom: 20,
-  },
-  confirmButtonText: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center",
   },
 });
 
